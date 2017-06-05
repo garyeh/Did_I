@@ -4,9 +4,6 @@
 
 Did I? is an Amazon Echo application that utilizes voice detection technology to set recurring reminders, allowing users to never forget.   
 
-## Wireframes
-![splash_page](./Did_I_splash_page.png)
-
 ## Functionality & MVP
 
 Users will be able to:
@@ -20,6 +17,9 @@ Bonus:
 - [ ] Aggregate stats
 - [ ] Text reminders
 - [ ] Custom voice
+
+## Wireframes
+![splash_page](./Did_I_splash_page.png)
 
 ## Technologies & Technical Challenges
 
