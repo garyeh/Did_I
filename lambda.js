@@ -16,7 +16,7 @@ exports.handler = (event, context) => {
         console.log(`LAUNCH REQUEST`)
         context.succeed(
           generateResponse(
-            buildSpeechletResponse("Welcome to an Alexa Skill, this is running on a deployed lambda function", true),
+            buildSpeechletResponse("Hello World", true),
             {}
           )
         )
@@ -27,7 +27,7 @@ exports.handler = (event, context) => {
         console.log(`INTENT REQUEST`)
 
         switch(event.request.intent.name) {
-          case "CheckDidI":
+          case "CheckRemindMe":
             var endpoint = "" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
@@ -45,7 +45,7 @@ exports.handler = (event, context) => {
             })
             break;
 
-          case "SetDidI":
+          case "SetRemindMe":
             var endpoint = "" // ENDPOINT GOES HERE
             var body = ""
             https.get(endpoint, (response) => {
