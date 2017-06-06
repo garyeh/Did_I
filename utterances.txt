@@ -1,3 +1,6 @@
-SetDidI that I took my pills
+SetRemindMe that I took my pills
+SetRemindMe I took my pills
 
-CheckDidI if I took my pills
+CheckRemindMe if I took my pills
+CheckRemindMe take my pills
+CheckRemindMe take pills
