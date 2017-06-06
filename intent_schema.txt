@@ -1,0 +1,10 @@
+{
+  "intent": [
+  {
+    "intent": "SetDidI"
+  },
+  {
+    "intent": "CheckDidI"
+  }
+  ]
+}
