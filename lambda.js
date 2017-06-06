@@ -63,6 +63,33 @@ exports.handler = (event, context) => {
             })
             break;
 
+            case "AMAZON.HelpIntent":
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse("Remind Me is an app to help you remember things", true),
+                {}
+              )
+            )
+            break;
+
+            case "AMAZON.CancelIntent":
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse("Are you sure you want to cancel?", true),
+                {}
+              )
+            )
+            break;
+
+            case "AMAZON.StopIntent":
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse("Goodbye", true),
+                {}
+              )
+            )
+            break;
+
           default:
             throw "Invalid intent"
         }
