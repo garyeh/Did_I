@@ -1,10 +1,10 @@
 {
   "intents”: [
   {
-    "intent": "SetDidI"
+    "intent": "SetRemindMe"
   },
   {
-    "intent": "CheckDidI"
+    "intent": "CheckRemindMe"
   }
   ]
 }
