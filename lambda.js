@@ -1,4 +1,5 @@
-var https = require('https')
+const AWS = require('aws-sdk');
+const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-1"});
 
 exports.handler = (event, context) => {
 
@@ -16,7 +17,7 @@ exports.handler = (event, context) => {
         console.log(`LAUNCH REQUEST`)
         context.succeed(
           generateResponse(
-            buildSpeechletResponse("Hello World", true),
+            buildSpeechletResponse(`Hello user ${event.session.user.userId}`, true),
             {}
           )
         )
@@ -46,16 +47,17 @@ exports.handler = (event, context) => {
             break;
 
           case "SetRemindMe":
-            var endpoint = "" // ENDPOINT GOES HERE
-            var body = ""
-            https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk })
-              response.on('end', () => {
-                var data = JSON.parse(body)
-                var viewCount = data.items[0].statistics.viewCount
+            var params = {
+              Item: {
+                userId: event.session.user.userId,
+                date: Date.now()
+              },
+              TableName: 'Test1'
+            };
+            docClient.put(params, () => {
                 context.succeed(
                   generateResponse(
-                    buildSpeechletResponse(`Current view count is ${viewCount}`, true),
+                    buildSpeechletResponse(`Current view count is ${event.session.user.userId}`, true),
                     {}
                   )
                 )
