@@ -88,7 +88,7 @@ exports.handler = (event, context) => {
             case "AMAZON.HelpIntent":
             context.succeed(
               generateResponse(
-                buildSpeechletResponse("Remind Me is an app to help you remember things", true),
+                buildSpeechletResponse("To check a verify, say, Alexa when was the last time I verified", false),
                 {}
               )
             )
@@ -97,7 +97,7 @@ exports.handler = (event, context) => {
             case "AMAZON.CancelIntent":
             context.succeed(
               generateResponse(
-                buildSpeechletResponse("Are you sure you want to cancel?", true),
+                buildSpeechletResponse("Goodbye", true),
                 {}
               )
             )
