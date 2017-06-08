@@ -1,8 +1,12 @@
-SetRemindMe that I took my pills
+SetVerify that I took my pills
+SetVerify I took my pills
+SetVerify set new verify
+SetVerify create a new verify
+SetVerify verify now
+SetVerify log now
 
-SetRemindMe I took my pills
-
-CheckRemindMe if I took my pills
-CheckRemindMe take my pills
-CheckRemindMe take pills
-
+CheckVerify if I took my pills
+CheckVerify take pills
+CheckVerify when did I last verify
+CheckVerify what's my last verify
+CheckVerify last verify
