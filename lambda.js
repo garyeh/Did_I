@@ -1,6 +1,28 @@
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-1"});
 
+function timeStamp() {
+  let now = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+  now = new Date(now)
+
+  let date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+
+  let time = [ now.getHours(), now.getMinutes() ];
+
+  let suffix = ( time[0] < 12 ) ? "AM" : "PM";
+
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+
+  time[0] = time[0] || 12;
+
+  for ( let i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+
+  return date.join("/") + " " + time.join(":") + " " + suffix;
+}
 exports.handler = (event, context) => {
 
   try {
@@ -50,7 +72,7 @@ exports.handler = (event, context) => {
             var params = {
               Item: {
                 userId: event.session.user.userId,
-                date: Date.now()
+                date: timeStamp()
               },
               TableName: 'Test1'
             };
