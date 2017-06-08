@@ -34,7 +34,7 @@ exports.handler = (event, context) => {
         console.log(`LAUNCH REQUEST`)
         context.succeed(
           generateResponse(
-            buildSpeechletResponse(`Hello user ${event.session.user.userId}`, true),
+            buildSpeechletResponse("Welcome, you may set or check your last verify", false),
             {}
           )
         )
@@ -45,7 +45,7 @@ exports.handler = (event, context) => {
         console.log(`INTENT REQUEST`)
 
         switch(event.request.intent.name) {
-          case "CheckRemindMe":
+          case "CheckVerify":
             var params = {
                 TableName: 'Test1',
                 Key: {
@@ -55,7 +55,8 @@ exports.handler = (event, context) => {
             console.log(event);
             docClient.get(params, function(err, data) {
                if (err) {
-                   console.error("unable to read item. Error JSON: ", JSON.stringify(err, null, 2));
+                   console.error("Unable to read item. Error JSON: ", JSON.stringify(err, null, 2));
+                   shouldEndSession: true;
                } else {
                    context.succeed(
                         generateResponse(
@@ -67,7 +68,7 @@ exports.handler = (event, context) => {
               })
             break;
 
-          case "SetRemindMe":
+          case "SetVerify":
             var params = {
               Item: {
                 userId: event.session.user.userId,
@@ -78,7 +79,7 @@ exports.handler = (event, context) => {
             docClient.put(params, () => {
                 context.succeed(
                   generateResponse(
-                    buildSpeechletResponse(`SetRemindMe for ${event.session.user.userId}`, true),
+                    buildSpeechletResponse("Your verify has been set", true),
                     {}
                   )
                 )
