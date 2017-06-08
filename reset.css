@@ -1,6 +1,6 @@
 html, head, body, header,
 nav, h1, h2, a, ul, ol, img, button, li, main,
-section, p, footer, small {
+section, p, small {
   border: none;
   margin: 0;
   padding: 0;
@@ -14,11 +14,6 @@ section, p, footer, small {
   box-sizing: inherit;
   background: transparent;
   font-family: 'Roboto', sans-serif;
-}
-
-header, nav, main, section,
-footer, small {
-  display: block;
 }
 
 ul {
