@@ -1,10 +1,10 @@
 {
   "intents": [
     {
-      "intent": "SetRemindMe"
+      "intent": "SetVerify"
     },
     {
-      "intent": "CheckRemindMe"
+      "intent": "CheckVerify"
     },
     {
       "intent": "AMAZON.HelpIntent"
