@@ -56,8 +56,15 @@ nav > a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   height: 300px;
-  border: 1px solid black;
+  margin: 0 18%;
+  text-align: center;
+}
+
+.info > p {
+  margin: 10px 0;
+  font-size: 20px;
 }
 
 .samples {
