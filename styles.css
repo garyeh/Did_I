@@ -27,11 +27,28 @@ nav > a:hover {
   border: 1px solid black;
 }
 
-.splash > div:first-child {
+.title {
   width: 30%;
+  flex-direction: column;
+  background-color: black;
+  color: white;
 }
 
-.splash > div:last-child {
+.title > p {
+  margin: 20px 0;
+  font-size: 25px;
+  letter-spacing: 10px;
+  font-weight: 900;
+}
+
+.title > h2 {
+  margin: 20px 0;
+  font-size: 75px;
+  letter-spacing: 12px;
+  font-weight: 100;
+}
+
+.demo {
   width: 70%;
 }
 
