@@ -4,15 +4,10 @@ const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-1"});
 function timeStamp() {
   let now = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
   now = new Date(now)
-
   let date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
-
   let time = [ now.getHours(), now.getMinutes() ];
-
   let suffix = ( time[0] < 12 ) ? "AM" : "PM";
-
   time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
-
   time[0] = time[0] || 12;
 
   for ( let i = 1; i < 3; i++ ) {
@@ -20,9 +15,9 @@ function timeStamp() {
       time[i] = "0" + time[i];
     }
   }
-
   return date.join("/") + " " + time.join(":") + " " + suffix;
 }
+
 exports.handler = (event, context) => {
 
   try {
@@ -51,21 +46,25 @@ exports.handler = (event, context) => {
 
         switch(event.request.intent.name) {
           case "CheckRemindMe":
-            var endpoint = "" // ENDPOINT GOES HERE
-            var body = ""
-            https.get(endpoint, (response) => {
-              response.on('data', (chunk) => { body += chunk })
-              response.on('end', () => {
-                var data = JSON.parse(body)
-                var subscriberCount = data.items[0].statistics.subscriberCount
-                context.succeed(
-                  generateResponse(
-                    buildSpeechletResponse(`Current subscriber count is ${subscriberCount}`, true),
-                    {}
-                  )
-                )
+            var params = {
+                TableName: 'Test1',
+                Key: {
+                    userId: event.session.user.userId
+                }
+            };
+            console.log(event);
+            docClient.get(params, function(err, data) {
+               if (err) {
+                   console.error("unable to read item. Error JSON: ", JSON.stringify(err, null, 2));
+               } else {
+                   context.succeed(
+                        generateResponse(
+                            buildSpeechletResponse("You last verified at " + data.Item.date, true),
+                            {}
+                        )
+                    )
+               }
               })
-            })
             break;
 
           case "SetRemindMe":
@@ -79,12 +78,11 @@ exports.handler = (event, context) => {
             docClient.put(params, () => {
                 context.succeed(
                   generateResponse(
-                    buildSpeechletResponse(`Current view count is ${event.session.user.userId}`, true),
+                    buildSpeechletResponse(`SetRemindMe for ${event.session.user.userId}`, true),
                     {}
                   )
                 )
               })
-            })
             break;
 
             case "AMAZON.HelpIntent":
