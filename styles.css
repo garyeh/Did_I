@@ -5,7 +5,7 @@ nav {
   height: 60px;
 }
 
-nav > a {
+nav > a, .open-about-us {
   padding: 10px;
   margin: 0 20px;
 }
@@ -14,6 +14,7 @@ nav > a:hover {
   text-decoration: underline;
 }
 
+/*add width, position:absolute and top*/
 footer {
   display: flex;
   background-color: #020621;
@@ -21,10 +22,16 @@ footer {
   padding: 30px;
   font-size: 12px;
   justify-content: flex-end;
+  position: absolute;
+  top: 1050px;
+  width: 100%;
 }
 
-.splash {
+.splash, div#about-us {
   display: flex;
+  position: absolute;
+  top: 60px;
+  width: 100%;
   height: 500px;
 }
 
@@ -61,11 +68,14 @@ footer {
   width: 70%;
 }
 
+/*add position:absolute and top*/
 .info {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: absolute;
+  top: 560px;
   height: 210px;
   margin: 20px 16% 0 16%;
   text-align: center;
@@ -76,11 +86,14 @@ footer {
   font-size: 20px;
 }
 
+/*add position:absolute and top*/
 .samples {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: row wrap;
+  position: absolute;
+  top: 800px;
   height: 210px;
   margin-bottom: 30px;
 }
@@ -111,4 +124,80 @@ footer {
   border-top: 10px solid transparent;
   border-right: 15px solid #e6e6e6;
   border-bottom: 10px solid transparent;
+}
+
+div#about-us {
+  display: block;
+  height: 990px;
+  border: 1px solid black;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+div#about-us.visible {
+  display: block;
+  background-color: white;
+  height: 990px;
+  border: 1px solid black;
+  opacity: 1;
+  z-index: 1;
+}
+
+div#main {
+  display: block;
+  height: 990px;
+  border: 1px solid black;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+div#main.visible {
+  display: block;
+  background-color: white;
+  height: 990px;
+  border: 1px solid black;
+  opacity: 1;
+  z-index: 1;
+}
+
+.open-about-us {
+  cursor: pointer;
+}
+
+.open-about-us:hover {
+  text-decoration: underline;
+}
+
+.about-us-nav {
+  width: 100%;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.close-about-us {
+  font-size: 20px;
+  font-weight: 900;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.close-about-us:hover {
+  color: red;
+}
+
+.colleague-info {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 700px;
+}
+
+.colleague {
+  width: 25%;
+  text-align: center;
+  border: 3px solid black;
+  margin-left: 5px;
+  margin-right: 5px;
 }
