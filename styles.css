@@ -24,6 +24,7 @@ footer {
   justify-content: flex-end;
   position: absolute;
   top: 1050px;
+  right: 0;
   width: 100%;
 }
 
