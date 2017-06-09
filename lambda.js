@@ -1,6 +1,7 @@
 const AWS = require('aws-sdk');
 const docClient = new AWS.DynamoDB.DocumentClient({region: "us-east-1"});
 
+
 function timeStamp() {
   let now = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
   now = new Date(now)
@@ -84,6 +85,7 @@ exports.handler = (event, context) => {
                   )
                 )
               })
+
             break;
 
             case "AMAZON.HelpIntent":
