@@ -169,12 +169,6 @@ div#main.visible {
   text-decoration: underline;
 }
 
-.about-us-nav {
-  width: 100%;
-  padding-bottom: 10px;
-  text-align: right;
-}
-
 .close-about-us {
   font-size: 20px;
   font-weight: 900;
@@ -188,17 +182,56 @@ div#main.visible {
   color: red;
 }
 
-.colleague-info {
+.about-us-nav {
+  width: 100%;
+  padding-bottom: 10px;
+  text-align: right;
+}
+
+.personal-info {
   display: flex;
   flex-direction: row;
   width: 100%;
   height: 700px;
 }
 
-.colleague {
+.personal {
   width: 25%;
   text-align: center;
   border: 3px solid black;
   margin-left: 5px;
   margin-right: 5px;
+}
+
+.about-us-name {
+  font-size: 35px;
+  font-weight: 900;
+  padding: 20px;
+}
+
+.about-us-pic {
+  height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+}
+
+.about-us-info {
+  height: 250px;
+  max-width: 250px;
+  object-fit: cover;
+}
+
+.github {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.linkedin {
+  width: 40px;
+  height: 40px;
+  padding-left: 30px;
+  cursor: pointer;
+  align-self: center;
 }
