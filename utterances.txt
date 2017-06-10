@@ -11,3 +11,7 @@ CheckVerify take my pills
 CheckVerify when did I last verify
 CheckVerify what's my last verify
 CheckVerify last verify
+
+VerifyReminder create a reminder
+VerifyReminder setup a reminder
+VerifyReminder remind me
