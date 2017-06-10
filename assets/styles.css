@@ -3,7 +3,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   height: 60px;
-
+  background-color: #f2f2f2;
 }
 
 nav > button, .open {
@@ -32,7 +32,7 @@ footer {
 .splash, div#about-us {
   display: flex;
   position: absolute;
-  top: 65px;
+  top: 60px;
   width: 100%;
   height: 500px;
 }
@@ -198,7 +198,7 @@ div#main.visible {
 .close {
   font-size: 20px;
   font-weight: 900;
-  padding-top: 10px;
+  padding-top: 20px;
   padding-bottom: 10px;
   padding-right: 10px;
   margin-right: 1.75%;
