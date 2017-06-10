@@ -3,7 +3,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   height: 60px;
-  border-bottom: 1px solid black;
+
 }
 
 nav > button, .open {
@@ -79,7 +79,7 @@ footer {
   flex-direction: column;
   position: absolute;
   top: 560px;
-  height: 210px;
+  min-height: 210px;
   margin: 20px 16% 0 16%;
   text-align: center;
 }
@@ -105,7 +105,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: 25%;
   height: 50px;
   margin: 0 30px;
   padding: 5px;
