@@ -43,7 +43,6 @@ exports.handler = (event, context) => {
 
       case "IntentRequest":
         // Intent Request
-        console.log(`INTENT REQUEST`)
 
         switch(event.request.intent.name) {
           case "CheckVerify":
@@ -55,16 +54,20 @@ exports.handler = (event, context) => {
             };
             console.log(event);
             docClient.get(params, function(err, data) {
-               if (err) {
-                   console.error("Unable to read item. Error JSON: ", JSON.stringify(err, null, 2));
-                   shouldEndSession: true;
-               } else {
+               if (data.Item) {
                    context.succeed(
-                        generateResponse(
-                            buildSpeechletResponse("You last verified at " + data.Item.date, true),
-                            {}
-                        )
+                     generateResponse(
+                       buildSpeechletResponse("You last verified at " + data.Item.date, true),
+                       {}
+                     )
+                   )
+               } else {
+                 context.succeed(
+                    generateResponse(
+                      buildSpeechletResponse("Cannot check. You must first verify.", true),
+                      {}
                     )
+                  )
                }
               })
             break;
@@ -87,6 +90,27 @@ exports.handler = (event, context) => {
               })
 
             break;
+
+            case "RemoveVerify":
+            var params = {
+                TableName: 'Test1',
+                Key: {
+                    userId: event.session.user.userId
+                }
+            };
+              console.log("Attempting a conditional delete...");
+              docClient.delete(params, function(err, data) {
+                  console.log(err);
+                  console.log(data);
+                  context.succeed(
+                    generateResponse(
+                      buildSpeechletResponse("Remove request complete.", true),
+                      {}
+                    )
+                  )
+              });
+
+              break;
 
             case "AMAZON.HelpIntent":
             context.succeed(
