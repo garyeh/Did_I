@@ -7,7 +7,14 @@ SetVerify log now
 
 CheckVerify if I took my pills
 CheckVerify take pills
-CheckVerify take my pills
 CheckVerify when did I last verify
 CheckVerify what's my last verify
 CheckVerify last verify
+
+RemoveVerify remove last verify
+RemoveVerify remove verify
+RemoveVerify delete last verify
+RemoveVerify clear verify
+RemoveVerify clear last log
+RemoveVerify clear log
+RemoveVerify remove last log

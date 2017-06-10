@@ -7,17 +7,7 @@
       "intent": "CheckVerify"
     },
     {
-      "intent": "VerifyReminder",
-      "slots": [
-        {
-          "name": "detail",
-          "type": "DETAILS"
-        },
-        {
-          "name": "Date",
-          "type": "AMAZON.DATE"
-        }
-      ]
+      "intent": "RemoveVerify"
     },
     {
       "intent": "AMAZON.HelpIntent"
