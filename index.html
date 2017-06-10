@@ -1,11 +1,24 @@
 <script> function showAboutUs() {
   $(document.getElementById('main')).removeClass('visible');
+  $(document.getElementById('download')).removeClass('visible');
   $(document.getElementById('about-us')).addClass('visible');
 }
 </script>
 
 <script> function hideAboutUs() {
   $(document.getElementById('about-us')).removeClass('visible');
+  $(document.getElementById('main')).addClass('visible');
+}
+</script>
+<script> function showDownload() {
+  $(document.getElementById('main')).removeClass('visible');
+  $(document.getElementById('about-us')).removeClass('visible');
+  $(document.getElementById('download')).addClass('visible');
+}
+</script>
+
+<script> function hideDownload() {
+  $(document.getElementById('download')).removeClass('visible');
   $(document.getElementById('main')).addClass('visible');
 }
 </script>
@@ -22,58 +35,68 @@
 
   <body>
     <nav>
-      <button class="open-about-us" onClick="showAboutUs()">
+      <button class="open" onClick="showAboutUs()">
         About Us</button>
-      <a href="https://topurchase.com">Purchase</a>
+      <button class="open" onClick="showDownload()">
+        Download</button>
     </nav>
+
+    <div id="download">
+      <div class="download-info">
+        <button class="close"
+        onClick="hideDownload()">Close</button>
+      </div>
+      <span>Pending Amazon certification approval</span>
+    </div>
 
     <div id="about-us">
       <div class="about-us-nav">
-        <button class="close-about-us" onClick="hideAboutUs()">Close</button>
+        <button class="close"
+        onClick="hideAboutUs()">Close</button>
       </div>
 
       <div class="personal-info">
         <section class="personal">
-          <h3 class="about-us-name">Stephen Achurra</h3>
           <img src="./assets/stephen_achurra.jpg"
-            style="max-height: 250px; width: 250px; object-fit:cover;"/>
-          <p class="about-us-info">About Stephen</p>
+            style="max-height: 250px; width: 250px; object-fit:cover; margin-top: 30px;"/>
+            <h3 class="about-us-name">Stephen Achurra</h3>
+          <p id="about-us-info">Discovered programming where the possibilities for making impactful and lasting solutions are limitless.</p>
           <div class="personal-links">
             <a href="https://github.com/garyeh/Verify">
               <img src="./assets/github_icon.png" class="github"></i></a>
-            <a href=/>
+            <a href="https://www.linkedin.com/in/stephen-achurra/">
               <img src="./assets/linkedin_icon.png" class="linkedin"></i></a>
           </div>
         </section>
 
         <section class="personal">
-          <h3 class="about-us-name">Gary Yeh</h3>
           <img src="./assets/gary_yeh.jpg" class="about-us-pic"/>
-          <p class="about-us-info">About Gary</p>
+          <h3 class="about-us-name">Gary Yeh</h3>
+          <p id="about-us-info">Full-stack software engineer passionate about solving complex problems and building cool user experiences.</p>
           <div class="personal-links">
             <a href="https://github.com/garyeh/Verify">
               <img src="./assets/github_icon.png" class="github"></i></a>
-            <a href=/>
+            <a href="https://www.linkedin.com/in/gary-yeh/">
               <img src="./assets/linkedin_icon.png" class="linkedin"></i></a>
           </div>
         </section>
 
         <section class="personal">
-          <h3 class="about-us-name">Jon Jaffe</h3>
           <img src="./assets/jon_jaffe.jpg" class="about-us-pic"/>
-          <p class="about-us-info">About Jon</p>
+          <h3 class="about-us-name">Jon Jaffe</h3>
+          <p id="about-us-info">Your every day, run of the mill software engineer/standup comedian.</p>
           <div class="personal-links">
             <a href="https://github.com/garyeh/Verify">
               <img src="./assets/github_icon.png" class="github"></i></a>
-            <a href=/>
+            <a href="https://www.linkedin.com/in/jonjaffe1/">
               <img src="./assets/linkedin_icon.png" class="linkedin"></i></a>
           </div>
         </section>
 
         <section class="personal">
-          <h3 class="about-us-name">Miriam Lau</h3>
           <img src="./assets/miriam_lau.jpg" class="about-us-pic"/>
-          <p class="about-us-info">About Miriam</p>
+          <h3 class="about-us-name">Miriam Lau</h3>
+          <p id="about-us-info">A mad scientist turned full-stack software engineer who enjoys solving challenging puzzles.</p>
           <div class="personal-links">
             <a href="https://github.com/garyeh/Verify">
               <img src="./assets/github_icon.png" class="github"></i></a>

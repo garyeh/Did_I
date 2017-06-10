@@ -3,14 +3,15 @@ nav {
   justify-content: flex-end;
   align-items: center;
   height: 60px;
+  border-bottom: 1px solid black;
 }
 
-nav > a, .open-about-us {
+nav > button, .open {
   padding: 10px;
   margin: 0 20px;
 }
 
-nav > a:hover {
+nav > button:hover {
   text-decoration: underline;
 }
 
@@ -31,17 +32,18 @@ footer {
 .splash, div#about-us {
   display: flex;
   position: absolute;
-  top: 60px;
+  top: 65px;
   width: 100%;
   height: 500px;
 }
+
 
 .splash > div {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  border: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .title {
@@ -130,7 +132,6 @@ footer {
 div#about-us {
   display: block;
   height: 990px;
-  border: 1px solid black;
   opacity: 0;
   transition: opacity 1s;
 }
@@ -138,16 +139,42 @@ div#about-us {
 div#about-us.visible {
   display: block;
   background-color: white;
-  height: 990px;
-  border: 1px solid black;
   opacity: 1;
   z-index: 1;
+}
+
+div#download {
+  position: absolute;
+  height: 800px;
+  background: gray; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#C0C0C0, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#C0C0C0, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#C0C0C0, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#C0C0C0, white); /* Standard syntax (must be last) */
+  opacity: 0;
+  transition: opacity 1s;
+  right: 0;
+  left: 0;
+  margin: 25px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+div#download.visible {
+  opacity: 1;
+  z-index: 1;
+}
+
+#download > span:last-child {
+  text-align: center;
+  display: inline-block;
+  font-size: 30px;
+  width: 100%;
 }
 
 div#main {
   display: block;
   height: 990px;
-  border: 1px solid black;
   opacity: 0;
   transition: opacity 1s;
 }
@@ -156,69 +183,81 @@ div#main.visible {
   display: block;
   background-color: white;
   height: 990px;
-  border: 1px solid black;
   opacity: 1;
   z-index: 1;
 }
 
-.open-about-us {
+.open {
   cursor: pointer;
 }
 
-.open-about-us:hover {
+.open:hover {
   text-decoration: underline;
 }
 
-.close-about-us {
+.close {
   font-size: 20px;
   font-weight: 900;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-right: 10px;
+  margin-right: 1.75%;
   cursor: pointer;
 }
 
-.close-about-us:hover {
+.close:hover {
   color: red;
 }
 
-.about-us-nav {
+.about-us-nav, .download-info {
   width: 100%;
-  padding-bottom: 10px;
   text-align: right;
+  padding-bottom: 10px;
 }
 
 .personal-info {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
 
 .personal {
-  width: 25%;
+  width: 23%;
   text-align: center;
   border: 3px solid black;
+  border-radius: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  height: 600px;
+  background: gray; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#C0C0C0, white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#C0C0C0, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#C0C0C0, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#C0C0C0, white); /* Standard syntax (must be last) */
 }
 
 .about-us-name {
   font-size: 35px;
   font-weight: 900;
-  padding: 20px;
+  padding-top: 20px;
 }
 
 .about-us-pic {
   height: 250px;
   max-width: 250px;
   object-fit: cover;
+  margin-top: 30px;
 }
 
-.about-us-info {
-  height: 250px;
-  max-width: 250px;
-  object-fit: cover;
+#about-us-info {
+  margin: 30px 40px;
+  height: 100px;
+}
+
+.personal-links > a {
+  margin: 0 20px;
 }
 
 .github {
@@ -231,7 +270,7 @@ div#main.visible {
 .linkedin {
   width: 40px;
   height: 40px;
-  padding-left: 30px;
+  margin-left: 30px;
   cursor: pointer;
   align-self: center;
 }
