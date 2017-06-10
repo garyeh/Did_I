@@ -226,7 +226,7 @@ div#main.visible {
 .personal {
   width: 23%;
   text-align: center;
-  border: 3px solid black;
+  border: 3px solid #808080;
   border-radius: 10px;
   margin-left: 5px;
   margin-right: 5px;
