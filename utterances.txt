@@ -1,12 +1,8 @@
-SetVerify that I took my pills
-SetVerify I took my pills
 SetVerify set new verify
 SetVerify create a new verify
 SetVerify verify now
 SetVerify log now
 
-CheckVerify if I took my pills
-CheckVerify take pills
 CheckVerify when did I last verify
 CheckVerify what's my last verify
 CheckVerify last verify
