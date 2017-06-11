@@ -30,125 +30,122 @@ exports.handler = (event, context) => {
 
     switch (event.request.type) {
 
-      case "LaunchRequest":
-        // Launch Request
-        console.log(`LAUNCH REQUEST`)
+    case "LaunchRequest":
+      // Launch Request
+      console.log(`LAUNCH REQUEST`)
+      context.succeed(
+        generateResponse(
+          buildSpeechletResponse("Welcome, you may set, check, or remove your last verify", false),
+          {}
+        )
+      )
+      break;
+
+    case "IntentRequest":
+      // Intent Request
+      switch(event.request.intent.name) {
+
+      case "CheckVerify":
+        var params = {
+          TableName: 'Test1',
+          Key: {
+            userId: event.session.user.userId
+          }
+        };
+        docClient.get(params, function(err, data) {
+           if (data.Item) {
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse("You last verified on " + data.Item.date, true),
+                {}
+              )
+            )
+           } else {
+            context.succeed(
+              generateResponse(
+                buildSpeechletResponse("Cannot check. You must first verify.", true),
+                {}
+              )
+            )
+          }
+        })
+
+      break;
+
+      case "SetVerify":
+      var params = {
+        Item: {
+          userId: event.session.user.userId,
+          date: timeStamp()
+        },
+        TableName: 'Test1'
+      };
+      docClient.put(params, () => {
         context.succeed(
           generateResponse(
-            buildSpeechletResponse("Welcome, you may set or check your last verify", false),
+            buildSpeechletResponse("Your verify has been set", true),
             {}
           )
         )
-        break;
+      })
 
-      case "IntentRequest":
-        // Intent Request
+      break;
 
-        switch(event.request.intent.name) {
-          case "CheckVerify":
-            var params = {
-                TableName: 'Test1',
-                Key: {
-                    userId: event.session.user.userId
-                }
-            };
-            console.log(event);
-            docClient.get(params, function(err, data) {
-               if (data.Item) {
-                   context.succeed(
-                     generateResponse(
-                       buildSpeechletResponse("You last verified at " + data.Item.date, true),
-                       {}
-                     )
-                   )
-               } else {
-                 context.succeed(
-                    generateResponse(
-                      buildSpeechletResponse("Cannot check. You must first verify.", true),
-                      {}
-                    )
-                  )
-               }
-              })
-            break;
-
-          case "SetVerify":
-            var params = {
-              Item: {
-                userId: event.session.user.userId,
-                date: timeStamp()
-              },
-              TableName: 'Test1'
-            };
-            docClient.put(params, () => {
-                context.succeed(
-                  generateResponse(
-                    buildSpeechletResponse("Your verify has been set", true),
-                    {}
-                  )
-                )
-              })
-
-            break;
-
-            case "RemoveVerify":
-            var params = {
-                TableName: 'Test1',
-                Key: {
-                    userId: event.session.user.userId
-                }
-            };
-              console.log("Attempting a conditional delete...");
-              docClient.delete(params, function(err, data) {
-                  console.log(err);
-                  console.log(data);
-                  context.succeed(
-                    generateResponse(
-                      buildSpeechletResponse("Remove request complete.", true),
-                      {}
-                    )
-                  )
-              });
-
-              break;
-
-            case "AMAZON.HelpIntent":
-            context.succeed(
-              generateResponse(
-                buildSpeechletResponse("To check a verify, say, Alexa when was the last time I verified", false),
-                {}
-              )
-            )
-            break;
-
-            case "AMAZON.CancelIntent":
-            context.succeed(
-              generateResponse(
-                buildSpeechletResponse("Goodbye", true),
-                {}
-              )
-            )
-            break;
-
-            case "AMAZON.StopIntent":
-            context.succeed(
-              generateResponse(
-                buildSpeechletResponse("Goodbye", true),
-                {}
-              )
-            )
-            break;
-
-          default:
-            throw "Invalid intent"
+      case "RemoveVerify":
+      var params = {
+        TableName: 'Test1',
+        Key: {
+          userId: event.session.user.userId
         }
+      };
+      docClient.delete(params, function(err, data) {
+        context.succeed(
+          generateResponse(
+            buildSpeechletResponse("Remove request complete.", true),
+            {}
+          )
+        )
+      });
 
-        break;
+      break;
+
+      case "AMAZON.HelpIntent":
+      context.succeed(
+        generateResponse(
+          buildSpeechletResponse("To set a verify, say, Set Verify. To check a verify, say, when was the last time I verified.", false),
+          {}
+        )
+      )
+      break;
+
+      case "AMAZON.CancelIntent":
+      context.succeed(
+        generateResponse(
+          buildSpeechletResponse("Goodbye", true),
+          {}
+        )
+      )
+      break;
+
+      case "AMAZON.StopIntent":
+      context.succeed(
+        generateResponse(
+          buildSpeechletResponse("Goodbye", true),
+          {}
+        )
+      )
+      break;
+
+      default:
+        throw "Invalid intent"
+      }
+
+      break;
 
       case "SessionEndedRequest":
         // Session Ended Request
         console.log(`SESSION ENDED REQUEST`)
-        break;
+      break;
 
       default:
         context.fail(`INVALID REQUEST TYPE: ${event.request.type}`)
