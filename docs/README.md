@@ -3,7 +3,9 @@
 
 ## Background & Overview
 
-Verify is an Amazon Echo application that utilizes voice detection technology to set recurring reminders, allowing users to never forget.   
+Verify is an Amazon Echo application that utilizes voice detection technology.
+Users can interact with Alexa to set a reminder as complete, to check if
+the reminder has been completed, and to remove the reminder.   
 
 ## Functionality & MVP
 
@@ -12,6 +14,7 @@ Users will be able to:
 - [ ] Use voice recognition to create/remove reminders
 - [ ] Use voice recognition to check if reminders are complete
 - [ ] Use voice recognition to set reminders as complete
+- [ ] Ask Alexa for help with using the application.
 - [ ] View splash page which demonstrates the app
 
 Bonus:
@@ -20,7 +23,7 @@ Bonus:
 - [ ] Custom voice
 
 ## Wireframes
-![splash_page](./Did_I_splash_page.png)
+![splash_page](./Verify_splash_page.png)
 
 ## Technologies & Technical Challenges
 
@@ -28,12 +31,19 @@ Bonus:
 * Python
 * AWS
 * Voice recognition
+* DynamoDB
+* Node.js
+
+## Project Flowchart
+
+![Flow_chart](./Flow_chart.png)
 
 ## Accomplished over the Weekend
 
 * Learn Alexa API
 * Research Alexa emulation
 * Learn Python (CodeAcademy, practice problems, Alexa tutorial)
+* Compare Python versus Javascript for building application
 
 ## Group Members & Work Breakdown
 
