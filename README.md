@@ -2,12 +2,6 @@
 
 ## Background & Overview
 
-Verify is an Amazon Echo application that utilizes voice detection technology to set recurring reminders, allowing users to never forget.   
-<<<<<<< HEAD
-<<<<<<< HEAD
+[Verify][video] is an Amazon Echo application that utilizes voice driven technology to log a date and time, allowing users to verify their last log time. The app is designed to work as a reminder for daily tasks which may be easily forgotten.
 
-[Development README](./docs/README.md)
-=======
->>>>>>> 89bd5c639acf09fdce5e4212e353e71fc5beeddb
-=======
->>>>>>> 89bd5c639acf09fdce5e4212e353e71fc5beeddb
+[video]: https://garyeh.github.io/Verify/
