@@ -3,7 +3,8 @@ nav {
   justify-content: flex-end;
   align-items: center;
   height: 60px;
-  background-color: #f2f2f2;
+  background-color: #4d4d4d;
+  color: white;
   padding-right: 3px;
 }
 
@@ -146,19 +147,13 @@ div#about-us.visible {
 
 div#download {
   position: absolute;
+  display: flex;
   height: 800px;
-  background: gray; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#C0C0C0, white); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#C0C0C0, white); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#C0C0C0, white); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#C0C0C0, white); /* Standard syntax (must be last) */
   opacity: 0;
   transition: opacity 1s;
   right: 0;
   left: 0;
-  margin: 25px;
   background-color: white;
-  border-radius: 10px;
 }
 
 div#download.visible {
@@ -166,11 +161,23 @@ div#download.visible {
   z-index: 1;
 }
 
+.download-img {
+  position: absolute;
+  height: 990px;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.4;
+  z-index: -1;
+}
+
 #download > span:last-child {
+  position: absolute;
+  top: 100px;
   text-align: center;
   display: inline-block;
   font-size: 30px;
   width: 100%;
+  z-index: 1;
 }
 
 div#main {
@@ -197,13 +204,15 @@ div#main.visible {
 }
 
 .close {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 900;
-  padding-top: 20px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  margin-right: 1.75%;
+  padding: 5px;
+  /*background-color: white;*/
+  margin-top: 20px;
+  margin-right: 2%;
   cursor: pointer;
+  /*border: 1px solid black;
+  border-radius: 5px;*/
 }
 
 .close:hover {
@@ -217,6 +226,7 @@ div#main.visible {
 }
 
 .personal-info {
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
