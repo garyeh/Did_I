@@ -26,7 +26,7 @@ While the team originally anticipated Python would be used to manage the back-en
 Verify was built on the AWS platform.
 
 - [Amazon Skill Kit](https://developer.amazon.com/alexa-skills-kit) was utilized for voice management and user interaction.  
-- [AWS Lambda](https://aws.amazon.com/lambda/) handled user interaction logic and tired interaction with the database
+- [AWS Lambda](https://aws.amazon.com/lambda/) handled user interaction logic and connects interaction with the database
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) created a NoSQL database allowing persistence of information for users between interactions
 - [Node.js](https://nodejs.org/en/) was the language of choice to manage the AWS Lamdba functionality and user flow.
 
