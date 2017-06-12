@@ -173,7 +173,7 @@ div#download.visible {
 
 #download > span:last-child {
   position: absolute;
-  top: 100px;
+  top: 50px;
   text-align: center;
   display: inline-block;
   font-size: 30px;
