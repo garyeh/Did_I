@@ -25,14 +25,12 @@ exports.handler = (event, context) => {
 
     if (event.session.new) {
       // New Session
-      // console.log("NEW SESSION")
     }
 
     switch (event.request.type) {
 
     case "LaunchRequest":
       // Launch Request
-      // console.log(`LAUNCH REQUEST`)
       context.succeed(
         generateResponse(
           buildSpeechletResponse("Welcome, you may set, check, or remove your last verify", false),
@@ -144,7 +142,6 @@ exports.handler = (event, context) => {
 
       case "SessionEndedRequest":
         // Session Ended Request
-        // console.log(`SESSION ENDED REQUEST`)
       break;
 
       default:
