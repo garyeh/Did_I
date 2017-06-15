@@ -25,8 +25,35 @@ While the team originally anticipated Python would be used to manage the back-en
 
 Verify was built on the AWS platform.
 
-- [Amazon Skill Kit](https://developer.amazon.com/alexa-skills-kit) was utilized for voice management and user interaction.  
-- [AWS Lambda](https://aws.amazon.com/lambda/) handled user interaction logic and connects interaction with the database
+- [Amazon Skill Kit](https://developer.amazon.com/alexa-skills-kit) was utilized for voice management and user interaction. A collection of data strings were mapped to a specific lambda function. Voice input from the user are cross-checked with the data strings, and upon match triggers the associated lambda function.
+
+```js
+SetVerify set new verify
+SetVerify create a new verify
+SetVerify verify now
+SetVerify log now
+```
+
+- [AWS Lambda](https://aws.amazon.com/lambda/) handled user interaction logic and connects interaction with the database. After a data response from the user was matched to an utterance, a function is created to convert Alexa's timestamp to the correct date and time format before writing to the database. This is necessary so when a user asks Alexa to check a verify, Alexa will respond with the customized format.
+
+``` js
+function timeStamp() {
+  let now = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+  now = new Date(now)
+  let date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
+  let time = [ now.getHours(), now.getMinutes() ];
+  let suffix = ( time[0] < 12 ) ? "AM" : "PM";
+  time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
+  time[0] = time[0] || 12;
+
+  for ( let i = 1; i < 3; i++ ) {
+    if ( time[i] < 10 ) {
+      time[i] = "0" + time[i];
+    }
+  }
+  return date.join("/") + " " + time.join(":") + " " + suffix;
+}
+```
 - [Amazon DynamoDB](https://aws.amazon.com/dynamodb/) created a NoSQL database allowing persistence of information for users between interactions
 - [Node.js](https://nodejs.org/en/) was the language of choice to manage the AWS Lamdba functionality and user flow.
 
