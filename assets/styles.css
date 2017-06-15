@@ -286,3 +286,8 @@ div#main.visible {
   cursor: pointer;
   align-self: center;
 }
+
+#download:hover {
+  text-decoration: none;
+  cursor: default;
+}
