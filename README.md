@@ -27,7 +27,7 @@ Verify was built on the AWS platform.
 
 - [Amazon Skill Kit](https://developer.amazon.com/alexa-skills-kit) was utilized for voice management and user interaction. A collection of data strings were mapped to a specific lambda function. Voice input from the user are cross-checked with the data strings, and upon match triggers the associated lambda function.
 
-```js
+```
 SetVerify set new verify
 SetVerify create a new verify
 SetVerify verify now
