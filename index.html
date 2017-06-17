@@ -1,6 +1,6 @@
 <script> function showAboutUs() {
   $(document.getElementById('main')).removeClass('visible');
-  $(document.getElementById('download')).removeClass('visible');
+  // $(document.getElementById('download')).removeClass('visible');
   $(document.getElementById('about-us')).addClass('visible');
 }
 </script>
@@ -11,15 +11,15 @@
 }
 </script>
 <script> function showDownload() {
-  $(document.getElementById('main')).removeClass('visible');
-  $(document.getElementById('about-us')).removeClass('visible');
-  $(document.getElementById('download')).addClass('visible');
+  // $(document.getElementById('main')).removeClass('visible');
+  // $(document.getElementById('about-us')).removeClass('visible');
+  // $(document.getElementById('download')).addClass('visible');
 }
 </script>
 
 <script> function hideDownload() {
-  $(document.getElementById('download')).removeClass('visible');
-  $(document.getElementById('main')).addClass('visible');
+  // $(document.getElementById('download')).removeClass('visible');
+  // $(document.getElementById('main')).addClass('visible');
 }
 </script>
 
@@ -38,8 +38,8 @@
     <nav>
       <button class="open" onClick="showAboutUs()">
         About Us</button>
-      <button class="open" onClick="showDownload()">
-        Download</button>
+      <button class="open" onClick="showDownload()" id="download">
+        Coming soon</button>
     </nav>
 
     <div id="download">
@@ -120,7 +120,7 @@
 
       <section class="info">
         <p>
-          Verify is an Amazon Echo application that utilizes voice detection technology, allowing users to create, check, or remove a reminder, so users will never forget. Voice input from the user triggers our custom functions, which interact with the database and returns a customized response.
+          Verify is an Amazon Echo application that utilizes voice detection technology, allowing users to create, check, or remove a reminder, so users will never forget. Voice input from the user triggers our custom functions, which interact with the database and return customized responses.
         </p>
 
         <p>
