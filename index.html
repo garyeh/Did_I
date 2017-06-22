@@ -10,6 +10,7 @@
   $(document.getElementById('main')).addClass('visible');
 }
 </script>
+
 <script> function showDownload() {
   // $(document.getElementById('main')).removeClass('visible');
   // $(document.getElementById('about-us')).removeClass('visible');
@@ -23,12 +24,20 @@
 }
 </script>
 
+<script> function closeAll() {
+  $(document.getElementById('main')).addClass('visible');
+  $(document.getElementById('about-us')).removeClass('visible');
+  // $(document.getElementById('download')).removeClass('visible');
+}
+</script>
+
 <!DOCTYPE html>
 <html>
   <head>
     <link rel="shortcut icon" href="./assets/favicon.png" />
     <link rel="stylesheet" type="text/css"href="./assets/reset.css">
     <link rel="stylesheet" type="text/css"href="./assets/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -48,10 +57,16 @@
 
   <body>
     <nav>
-      <button class="open" onClick="showAboutUs()">
-        About Us</button>
-      <button class="open" onClick="showDownload()" id="download">
-        Coming soon</button>
+      <div>
+        <button class="homeLink" onClick="closeAll()">
+          VERIFY</button>
+      </div>
+      <div>
+        <button class="open" onClick="showAboutUs()">
+          About Us</button>
+        <button class="open" onClick="showDownload()" id="download">
+          Coming soon</button>
+      </div>
     </nav>
 
     <div id="download">

@@ -1,6 +1,6 @@
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   height: 60px;
   background-color: #4d4d4d;
@@ -15,6 +15,21 @@ nav > button, .open {
 
 nav > button:hover {
   text-decoration: underline;
+}
+
+.homeLink {
+  margin-left: 30px;
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 40px;
+  font-style: italic;
+  font-weight: 900;
+  transition: all 0.2s ease-in-out;
+}
+
+.homeLink:hover {
+  color: #e6e6e6;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 /*add width, position:absolute and top*/
