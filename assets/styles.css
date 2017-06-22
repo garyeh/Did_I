@@ -107,6 +107,13 @@ footer {
   font-size: 20px;
 }
 
+.info > h2 {
+  font-size: 35px;
+  font-weight: 900;
+  font-style: italic;
+  margin-bottom: 5px;
+}
+
 /*add position:absolute and top*/
 .samples {
   display: flex;
@@ -114,7 +121,7 @@ footer {
   align-items: center;
   flex-flow: row wrap;
   position: absolute;
-  top: 800px;
+  top: 825px;
   height: 210px;
   margin-bottom: 30px;
 }
