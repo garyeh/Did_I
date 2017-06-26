@@ -106,17 +106,19 @@ footer > p {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  position: absolute;
-  top: 560px;
-  min-height: 210px;
-  margin: 30px 16% 0 16%;
   text-align: center;
+  flex-flow: row wrap;
+  position: absolute;
+  width: 100%;
+  top: 570;
+  min-height: 210px;
+  margin-bottom: 30px;
 }
 
 .info > p {
   margin: 10px 0;
   font-size: 20px;
+  width: 80%;
 }
 
 /*add position:absolute and top*/
@@ -216,7 +218,8 @@ div#main {
 }
 
 div#main.visible {
-  display: block;
+  display: flex;
+  justify-content: center;
   background-color: white;
   height: 990px;
   opacity: 1;
